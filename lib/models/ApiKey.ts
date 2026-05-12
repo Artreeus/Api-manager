@@ -35,6 +35,10 @@ const ApiKeySchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  updatedAt: {
+    type: Date,
+    default: Date.now,
+  },
   lastAccessed: {
     type: Date,
     default: Date.now,
