@@ -20,7 +20,15 @@ export async function GET(request: NextRequest) {
 
     await dbConnect();
 
-    let query: any = { userId: session.user.id };
+    interface ApiKeyQuery {
+      userId: string;
+      provider?: string;
+      environment?: string;
+      tags?: { $in: string[] | RegExp[] };
+      $or?: Array<{ [key: string]: any }>;
+    }
+
+    let query: ApiKeyQuery = { userId: session.user.id };
 
     if (search) {
       query.$or = [
@@ -45,6 +53,7 @@ export async function GET(request: NextRequest) {
 
     const apiKeys = await ApiKey.find(query)
       .sort({ createdAt: -1 })
+      .limit(100)
       .lean();
 
     return NextResponse.json(apiKeys);
