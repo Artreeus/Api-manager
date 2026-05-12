@@ -9,6 +9,7 @@ interface GlassCardProps {
   className?: string;
   hover?: boolean;
   glow?: boolean;
+  delay?: number;
   variant?: 'default' | 'premium' | 'cyber' | 'solar' | 'cosmic';
 }
 
@@ -17,6 +18,7 @@ export function GlassCard({
   className, 
   hover = true, 
   glow = false,
+  delay = 0,
   variant = 'default'
 }: GlassCardProps) {
   const variants = {
@@ -47,7 +49,7 @@ export function GlassCard({
       )}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.5, delay }}
       whileHover={hover ? { 
         scale: 1.02,
         boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
