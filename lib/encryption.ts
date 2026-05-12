@@ -34,6 +34,15 @@ export class EncryptionService {
     }
   }
 
+  static isEncrypted(data: string): boolean {
+    try {
+      const decoded = JSON.parse(atob(data));
+      return !!(decoded.salt && decoded.iv && decoded.encrypted);
+    } catch {
+      return false;
+    }
+  }
+
   static decrypt(encryptedData: string, masterPassword: string): string {
     try {
       const data = JSON.parse(atob(encryptedData));
