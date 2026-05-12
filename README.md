@@ -143,36 +143,41 @@ A secure API key management application built with Next.js, featuring client-sid
 3. Key is decrypted client-side using master password
 4. Plain text key is displayed temporarily
 
-## Development
+## 🗺️ Roadmap
 
-### Running Tests
-```bash
-npm test
+- [ ] **Multi-Factor Authentication (MFA)**: Add an extra layer of security for logins
+- [ ] **Key Expiration Alerts**: Notify users when keys are about to expire
+- [ ] **Usage Analytics**: Track and visualize key usage over time
+- [ ] **Team Collaboration**: Securely share key collections with team members
+- [ ] **Mobile App**: Dedicated mobile application for on-the-go management
+
+## 📁 Code Structure
+
+```text
+├── app/                    # Next.js 13+ App Router
+│   ├── api/               # Serverless API routes
+│   │   ├── auth/          # Authentication endpoints
+│   │   └── keys/          # API key management endpoints
+│   ├── auth/              # Auth pages (Sign In, Sign Up)
+│   ├── dashboard/         # User dashboard & key listing
+│   ├── settings/          # User account settings
+│   └── layout.tsx         # Global layout & providers
+├── components/            # React components
+│   ├── ui/                # Base UI components (shadcn/ui)
+│   ├── ApiKeyCard.tsx     # Display card for individual keys
+│   ├── AddKeyDialog.tsx   # Modal for adding new keys
+│   └── GlassCard.tsx      # Specialized glassmorphism container
+├── lib/                   # Shared logic & configuration
+│   ├── models/           # Mongoose schemas (User, ApiKey)
+│   ├── auth.ts           # NextAuth.js configuration
+│   ├── encryption.ts     # Client-side AES encryption service
+│   ├── mongodb.ts        # Database connection management
+│   └── utils.ts          # Helper functions & utilities
+├── types/                # TypeScript definitions
+└── public/               # Static assets
 ```
 
-### Building for Production
-```bash
-npm run build
-npm start
-```
-
-### Code Structure
-```
-├── app/                    # Next.js 13+ app directory
-│   ├── api/               # API routes
-│   ├── auth/              # Authentication pages
-│   ├── dashboard/         # Main dashboard
-│   └── layout.tsx         # Root layout
-├── components/            # Reusable UI components
-├── lib/                   # Utility functions and configurations
-│   ├── models/           # MongoDB models
-│   ├── auth.ts           # NextAuth configuration
-│   ├── encryption.ts     # Client-side encryption utilities
-│   └── mongodb.ts        # Database connection
-└── types/                # TypeScript type definitions
-```
-
-## Contributing
+## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch
