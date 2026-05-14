@@ -1,4 +1,4 @@
-1423# SecureKeys - API Key Manager
+14523# SecureKeys - API Key Manager
 
 A secure API key management application built with Next.js, featuring client-side encryption and a clean, professional interface.
 
